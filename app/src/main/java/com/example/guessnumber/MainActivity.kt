@@ -12,10 +12,12 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var textView: TextView
     lateinit var textView2: TextView
+    lateinit var textView3: TextView
     lateinit var numberText: EditText
     lateinit var numberReset: ImageButton
     lateinit var numberCheck: ImageButton
 
+    var count = 0
     var random: Int = nextInt(1,1000)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         textView = findViewById(R.id.textView)
         textView2 = findViewById(R.id.textView2)
+        textView3 = findViewById(R.id.textView3)
         numberText = findViewById(R.id.numberText)
         numberReset = findViewById(R.id.numberReset)
         numberCheck = findViewById(R.id.numberCheck)
@@ -36,13 +39,16 @@ class MainActivity : AppCompatActivity() {
             if (number < random){
                 textView2.text = "Wrong your number is higher!"
                 numberText.text.clear()
+                count += 1
             }
             else if (number > random){
                 textView2.text = "Wrong your number is lower!"
                 numberText.text.clear()
+                count += 1
             }
             else {
                 textView2.text = "YOU ARE THE WINNER!"
+                textView3.text = "You answers" + count + "times"
                 numberText.text.clear()
             }
         }
@@ -55,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     fun reset() {
         random = nextInt(1, 1000)
         textView2.text = "Please enter your number"
+        count = 0
         numberText.text.clear()
     }
 }
