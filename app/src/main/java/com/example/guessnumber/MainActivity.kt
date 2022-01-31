@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             }
             else {
                 textView2.text = "YOU ARE THE WINNER!"
-                textView3.text = "You answers" + count + "times"
+                textView3.text = "You answers " + count + " times"
                 numberText.text.clear()
             }
         }
@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
     fun reset() {
         random = nextInt(1, 1000)
         textView2.text = "Please enter your number"
+        textView3.text = ""
         count = 0
         numberText.text.clear()
     }
